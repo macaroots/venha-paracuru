@@ -1,0 +1,11 @@
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 31ch;
+    position: fixed;
+    height: 100%;
+}
+
+main {
+    margin-left: 35ch;
+}

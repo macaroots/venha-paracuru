@@ -1,6 +1,15 @@
+:root {
+  --bg-color: #b5553a;
+  --color: hsl(53.88deg 100% 97.49%);
+}
+
 body {
-    background-color: #b5553a;
+    background-color: var(--bg-color);
     margin: 0;
+}
+nav {
+    background: var(--color);
+    padding: 1em;
 }
 section, footer {
     padding: 1em;
@@ -14,18 +23,18 @@ section, footer {
 }
 
 #banner h1 {
-    color: white;
+    color: var(--color);
     font-size: 2em;
 }
 #banner p {
-    color: white;
+    color: var(--color);
     font-size: 1.5em;
 }
 
 #banner a {
-    color: white;
+    color: var(--color);
     padding: .5em 1em;
-    border: 1px solid white;
+    border: 1px solid var(--color);
     border-radius: 5px;
 }
 
@@ -35,14 +44,17 @@ img {
 }
 
 #blog, #servicos {
-    color: white;
+    color: var(--color);
 }
 .artigos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    --color: #fff8b7;
 }
-.artigos article {
+
+.artigos article, .servicos article {
+    color: var(--color);
     /* display: inline-block; */
     min-width: 200px;
     max-width: 300px;
@@ -52,4 +64,35 @@ img {
     border: 1px solid;
     border-radius: 5px;
     margin: 1em;
+}
+.servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+#botao-menu {
+    display: none;
+}
+@media (max-width: 600px) {
+    
+    #botao-menu {
+        display: block;
+    }
+    nav {
+        display: none;
+    }
+    #botao-menu:hover ~ nav, nav:hover {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--color);
+        padding: 1em;
+    }
+}
+
+@media print {
+    nav {
+        display: none;
+    }
+    
 }
